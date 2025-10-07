@@ -11,26 +11,55 @@
 
 <header>
     <nav class="cím">11E</nav>
-    <div id="includedContent"></div>
+    <div class="kepbox">
+      <img src="./img/osztály.jpg" alt="">
+    </div>
 </header>
 
 <main>
-    <aside></aside>
-    <section></section>
+    <aside>
+       <div id="includedContent"></div>
+    </aside>
 </main>
 
-<footer></footer>
+<footer>
+  Készítette
+</footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-$(function(){
-  $("#includedContent").load("./tablazat/index.html"); 
+
+$(function() {
+    // Betöltjük a táblázatot
+    $("#includedContent").load("./tablazat/index.html", function() {
+
+        // Minden td, aminek data-id="nem", letiltjuk
+        $("#includedContent td[data-id='nem']").each(function() {
+            $(this).addClass("disabled")          // opcionális: vizuális jelzéshez
+                   .css({ "pointer-events": "none", "opacity": "0.6" })
+                   .attr("title", "Nincs kattintható adat"); // tooltip
+        });
+
+        // Csak a tényleges data-id-vel rendelkező td-k kattinthatók
+        $(document).on("click", "#includedContent td[data-id]:not([data-id='nem'])", function() {
+            let id = $(this).data("id"); // kivesszük a data-id értékét
+            if (id) {
+                sessionStorage.setItem("selectedId", id); // ideiglenesen eltároljuk
+                console.log("Eltárolt tantárgy ID:", id); // csak ellenőrzéshez
+                window.open("./tantargy.html", "_blank"); // új fülön megnyitjuk
+            }
+        });
+
+    });
 });
 
-$(document).on("click", "td", function(){
-  window.open("./tantargy.html","_blank");
-});
+
+
+
+
+
 </script>
+<script src="tdclick.js"></script>
 
 </body>
 </html>
