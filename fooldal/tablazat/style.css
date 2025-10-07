@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: auto;
+    width: 75%;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5;
+    margin-right: 0;
+    margin-bottom: -25px;
+    margin-left: 0;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    margin-top: -10px;
+}
+
+tr td:first-child {
+    font-size: 15px;
+    height: 70px;
+}
+
+td {
+    border:solid 2px #000;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+td span:first-child {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 10px;
+}
+
+td span:nth-child(2) {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: 10px;
+}
+
+td span:nth-child(3) {
+    position: absolute;
+    bottom: 2px;
+    left: 4px;
+    font-size: 10px;
+}
+
+.footer{
+    position: relative;
+    font-size: 12px;
+}
+
+.footer span {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.nap {
+    width: 200px;
+}
+
+.cella {
+    width: 80px;
+    height: 60px;
+}
+
+td .ido {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%);
+    font-size: 45% !important;
+}
