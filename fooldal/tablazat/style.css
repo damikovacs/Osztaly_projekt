@@ -30,6 +30,8 @@ td {
     text-align: center;
     position: relative;
     overflow: hidden;
+    font-size: small;
+    font-weight: bold;
 }
 
 td span:first-child {
@@ -78,4 +80,10 @@ td .ido {
     left: 50%; 
     transform: translateX(-50%);
     font-size: 45% !important;
+}
+td:hover{
+    background-color: rgb(0,0,250,25%);
+}
+td:visited{
+    background-color: rgb(0,250,0,25%);
 }
