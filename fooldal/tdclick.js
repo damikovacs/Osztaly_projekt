@@ -2,102 +2,95 @@ $(document).ready(function() {
     let selectedId = sessionStorage.getItem('selectedId');
     if(!selectedId) return;
 
-    let contentLists = {
-        Magyar: {
-            header: "Magyar nyelv és irodalom",
-            main: "Nyelvtan, helyesírás, irodalmi elemzések és fogalmazásgyakorlat.",
-            footer: "© 2025 Magyar Tanszék"
-        },
-        Matek: {
-            header: "Matematika",
-            main: "Algebra, geometria, függvények, statisztika és logikai feladatok.",
-            footer: "© 2025 Matek Osztály"
-        },
-        Halozat: {
-            header: "Hálózatok",
-            main: "IP-címzés, DHCP, DNS, router-konfiguráció, topológiák és hálózati modellek.",
-            footer: "© 2025 Hálózati Labor"
-        },
-        Adatbazis: {
-            header: "Adatbázis-kezelés",
-            main: "Relációs adatmodellek, SQL-lekérdezések, adatkezelés és optimalizálás.",
-            footer: "© 2025 Adatbázis Tanszék"
-        },
-        Fizika: {
-            header: "Fizika",
-            main: "Mechanika, elektromosság, optika, hőtan és gyakorlati kísérletek.",
-            footer: "© 2025 Fizika Osztály"
-        },
-        Testneveles: {
-            header: "Testnevelés",
-            main: "Sportágak, erőnléti gyakorlatok és az egészséges életmód alapjai.",
-            footer: "© 2025 Testnevelés Osztály"
-        },
-        IKTNI: {
-            header: "IKT – Nem Informatikai csoport",
-            main: "Alapvető számítógép-használat, szövegszerkesztés, prezentációk és digitális kompetenciák.",
-            footer: "© 2025 IKTNI Osztály"
-        },
-        IKT: {
-            header: "IKT – Informatikai alapismeretek",
-            main: "Operációs rendszerek, szoftverhasználat és informatikai alapismeretek.",
-            footer: "© 2025 IKT Osztály"
-        },
-        Asztali: {
-            header: "Asztali alkalmazásfejlesztés",
-            main: "C# programozás, WinForms, adatbázis-kapcsolat és szoftvertervezés.",
-            footer: "© 2025 Fejlesztői Tanszék"
-        },
-        Tortenelem: {
-            header: "Történelem",
-            main: "Fontos események, korszakok, évszámok és történelmi személyiségek.",
-            footer: "© 2025 Történelem Osztály"
-        },
-        SzakmaiAngolKIK: {
-            header: "Szakmai angol (KIK csoport)",
-            main: "Informatikai szaknyelv, kommunikációs készségek és dokumentációk fordítása.",
-            footer: "© 2025 Nyelvi Központ"
-        },
-        AdatbazisTP: {
-            header: "Adatbázis-tervezés és programozás",
-            main: "Relációs modellek, kulcsok, táblakapcsolatok és SQL-programozás.",
-            footer: "© 2025 Adatbázis Labor"
-        },
-        webprog: {
-            header: "Webprogramozás",
-            main: "HTML, CSS, Bootstrap, JavaScript, jQuery és reszponzív design.",
-            footer: "© 2025 Webfejlesztő Tanszék"
-        },
-        An1: { header: "Angol 1. csoport", main: "Alapfokú nyelvtan és szókincsfejlesztés.", footer: "© 2025 Angol Osztály" },
-        An2: { header: "Angol 2. csoport", main: "Beszédgyakorlat, olvasás és nyelvtani ismétlés.", footer: "© 2025 Angol Osztály" },
-        An3: { header: "Angol 3. csoport", main: "Kommunikációs helyzetek és szövegértési feladatok.", footer: "© 2025 Angol Osztály" },
-        An4: { header: "Angol 4. csoport", main: "Középszintű nyelvtani szerkezetek és szóhasználat.", footer: "© 2025 Angol Osztály" },
-        An5: { header: "Angol 5. csoport", main: "Hallás utáni értés és szóhasználati gyakorlat.", footer: "© 2025 Angol Osztály" },
-        An6: { header: "Angol 6. csoport", main: "Haladó nyelvhasználat, levelezés és prezentációk.", footer: "© 2025 Angol Osztály" },
-        An7: { header: "Angol 7. csoport", main: "Társalgási és nyelvvizsga-előkészítő gyakorlatok.", footer: "© 2025 Angol Osztály" },
-        An8: { header: "Angol 8. csoport", main: "Komplex kommunikációs és írásgyakorlat.", footer: "© 2025 Angol Osztály" },
-        Ne1: { header: "Német 1. csoport", main: "Német nyelv alapjai, szókincs és nyelvtan.", footer: "© 2025 Német Osztály" },
-        Ne2: { header: "Német 2. csoport", main: "Középfokú nyelvgyakorlat, párbeszédek és olvasás.", footer: "© 2025 Német Osztály" },
-        Matematika: {
-            header: "Matematika (bővített)",
-            main: "Haladó algebra, geometria és kombinatorika témakörök.",
-            footer: "© 2025 Matek Osztály"
-        },
-        SzakmaiAngol: {
-            header: "Szakmai angol",
-            main: "Technikai és informatikai kifejezések, dokumentációk és beszédkészség fejlesztése.",
-            footer: "© 2025 Nyelvi Központ"
-        },
-        of: {
-            header: "Osztályfőnöki óra",
-            main: "Közösségi tevékenységek, osztályügyek megbeszélése és iskolai programok.",
-            footer: "© 2025 Osztályfőnöki Óra"
-        }
-    };
+const contentLists = {
+    Magyar: {
+        header: "Magyar nyelv és irodalom",
+        main: "Nyelvtan, helyesírás, szövegértés, fogalmazás, irodalmi elemzés. Évfolyamspecifikusan Petőfi, József Attila, Ady művek részletes elemzése.",
+        footer: "Tanár: Szerencsés Tímea <br>Elérhetőség: szerencsestimea@turr.hu"
+    },
+    Matek: {
+        header: "Matematika",
+        main: "Algebra, egyenletek, függvények, geometria, trigonometria, kombinatorika, statisztika és valószínűségszámítás. Év során gyakorló feladatok és problémamegoldó gyakorlatok.",
+        footer: "Tanár: Huzsvay Edit <br>Elérhetőség: huzsvayedit@turr.hu"
+    },
+    Tortenelem: {
+        header: "Történelem",
+        main: "Magyar és világ történelem, fontos események, évszámok, személyek. Részletes áttekintés a 20. század eseményeiről és történelmi összefüggésekről.",
+        footer: "Tanár: Pakainé Estók Júlia <br>Elérhetőség: pakainestokjulia@turr.hu"
+    },
+    Fizika: {
+        header: "Fizika",
+        main: "Mechanika, hőtan, elektromosságtan, mágnesesség, optika. Gyakorlati kísérletek és problémamegoldó feladatok az éves tananyaghoz.",
+        footer: "Tanár: Kollányi Miklós György <br>Elérhetőség: kollanyimiklosgyorgy@turr.hu"
+    },
+    Testneveles: {
+        header: "Testnevelés",
+        main: "Állóképesség, ügyesség, sportágak gyakorlata, torna, mozgáskoordináció. Évközi és gyakorlati feladatok a fizikai állóképesség fejlesztésére.",
+        footer: "Tanár: Dancsa Bálint <br>Elérhetőség: dancsabalint@turr.hu"
+    },
+    IKT: {
+        header: "Informatika (Szoftveres csoport)",
+        main: "Programozás alapjai (JavaScript, Python), webfejlesztés (HTML, CSS, JS), adatbázis-kezelés, gyakorlati IT-projektek.",
+        footer: "Tanár: Szőcs Gábor <br>Elérhetőség: szocsgabor@turr.hu"
+    },
+    IKTNI: {
+        header: "Informatika (Hálózatos csoport)",
+        main: "Hálózati alapok, protokollok, konfigurálás, IP-címzés, hálózati problémamegoldás, szerverek és routerek gyakorlati beállítása.",
+        footer: "Tanár: Németh Ildikó <br>Elérhetőség: nemethildiko@turr.hu"
+    },
+    Adatbazis: {
+        header: "Adatbázis-kezelés",
+        main: "Relációs adatbázisok, SQL lekérdezések, adatmodellezés, tervezés, adatbázis-kezelő rendszerek gyakorlati felhasználása.",
+        footer: "Tanár: Posgay Erzsébet <br>Elérhetőség: posgayerzsebet@turr.hu"
+    },
+    AdatbazisTP: {
+        header: "Adatbázis-kezelés (Hálózatos)",
+        main: "Hálózati adatbázisok kezelése, SQL, adatbázis-tervezés, adatbiztonság, szerveroldali konfigurációk és hálózati kapcsolatok gyakorlata.",
+        footer: "Tanár: Taskovics Péter <br>Elérhetőség: taskovicspeter@turr.hu"
+    },
+    Asztali: {
+        header: "Asztali alkalmazások fejlesztése",
+        main: "GUI alkalmazások készítése, programozási logika, felhasználói felületek tervezése, gyakorlati példák évközi projektekhez.",
+        footer: "Tanár: Posgay Erzsébet <br>Elérhetőség: posgayerzsebet@turr.hu"
+    },
+    webprog: {
+        header: "Webprogramozás",
+        main: "HTML, CSS, JavaScript, dinamikus weboldalak készítése, DOM manipuláció, gyakorlati webprojektek.",
+        footer: "Tanár: Foki Zoltán <br>Elérhetőség: fokizoltan@turr.hu"
+    },
+    Halozat: {
+        header: "Hálózati ismeretek",
+        main: "Számítógépes hálózatok, protokollok, IP-címzés, routerek és switch-ek konfigurálása, hálózati biztonság, gyakorlati hálózati gyakorlatok.",
+        footer: "Tanár: Varga József <br>Elérhetőség: varga.jozsef@turr.hu"
+    },
+    SzakmaiAngol: {
+        header: "Szakmai angol (Szoftveres)",
+        main: "Programozási és informatikai kifejezések angolul, dokumentációk, szövegértés és beszédgyakorlatok.",
+        footer: "Tanár: Bencze Balázs <br>Elérhetőség: benczebalazs@turr.hu"
+    },
+    SzakmaiAngolKIK: {
+        header: "Szakmai angol (Hálózatos)",
+        main: "Szakmai terminológia, angol nyelvű hálózati dokumentációk, kommunikáció és olvasott szöveg feldolgozás.",
+        footer: "Tanár: Kics Klára <br>Elérhetőség: kik@turr.hu"
+    },
+    An1: { header: "Angol csoport 1", main: "Angol nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Szőcs Krisztina <br>Elérhetőség: szocskrisztina@turr.hu" },
+    An2: { header: "Angol csoport 2", main: "Angol nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Balykó Gyöngyvér Barbara <br>Elérhetőség: balykogyongyverbarbara@turr.hu" },
+    An3: { header: "Angol csoport 3", main: "Angol nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Bata Mónika <br>Elérhetőség: batamonika@turr.hu" },
+    An4: { header: "Angol csoport 4", main: "Angol nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Rácz Előd <br>Elérhetőség: raczelod@turr.hu" },
+    An5: { header: "Angol csoport 5", main: "Angol nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Lakner Mónika <br>Elérhetőség: laknermonika@turr.hu" },
+    An6: { header: "Angol csoport 6", main: "Angol nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Nemes Anikó <br>Elérhetőség: nemesanikó@turr.hu" },
+    An7: { header: "Angol csoport 7", main: "Angol nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Kiss Klára <br>Elérhetőség: kissklara@turr.hu" },
+    An8: { header: "Angol csoport 8", main: "Angol nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Bencze Balázs <br>Elérhetőség: benczebalazs@turr.hu" },
+    Ne1: { header: "Német csoport 1", main: "Német nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Pumpné Bíró Ágnes <br>Elérhetőség: pumpnebiroagnes@turr.hu" },
+    Ne2: { header: "Német csoport 2", main: "Német nyelvi készségek fejlesztése, szókincs és nyelvtan.", footer: "Tanár: Debela-Hegyi Éva <br>Elérhetőség: debela-hegyieva@turr.hu" },
+    of: { header: "Osztályfőnöki", main: "Közösségépítés, pályaorientáció, iskolai szabályok és szociális készségek fejlesztése.", footer: "Tanár: Németh Ildikó <br>Elérhetőség: nemethildiko@turr.hu" }
+};
+
+
 
     if(contentLists[selectedId]) {
         $('#header').text(contentLists[selectedId].header);
         $('#main').text(contentLists[selectedId].main);
-        $('#footer').text(contentLists[selectedId].footer);
+        $('#footer').html(contentLists[selectedId].footer);
     }
 });

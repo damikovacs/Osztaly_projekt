@@ -6,23 +6,50 @@ html,body{
 }
 
 .cím{
+    height: 10%;
     padding-top: 0%;
     text-align: center;
     font-size: xx-large;
-    background-color: rgb(131, 131, 255);
+    background-color: cornflowerblue;
 }
 
 #includedContent{
-    padding-top: 0.6%;
+    height: 45%;
+    border-top:solid 10px black ;
+    padding-top: 0.5%;
+    background-color: rgb(100, 149, 237,35%);
 }
 .kepbox {
     width: 100%;
-    height: 500px;
-    overflow: hidden;
+    height: 70vh;
+    overflow:hidden;
 }
 
 .kepbox img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* vagy 'contain', ha teljesen látszódjon a kép */
+    object-fit: cover;
+    object-position: center; /* mindig középen vágja */
+    display: block;
+}
+
+.leiras{
+    height: 25%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: solid 10px black;
+    background-color: rgb(100, 149, 237,25%);
+}
+footer{
+    width: 100%;
+    height: 5%;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
 }
